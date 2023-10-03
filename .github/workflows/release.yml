@@ -17,7 +17,7 @@ jobs:
       - name: Output the latest we found
         run: |
           echo "Found latest release: ${{ steps.latest_release.outputs.release }}"
-      - name: Get latest using a different Action
+      - name: Get latest using a different Action (alt_1)
         id: latest_alt_1
         uses: fangqiuming/latest-release-version@v1.2.0-beta
         with:
@@ -25,3 +25,12 @@ jobs:
       - name: Output the latest we found (alt_1)
         run: |
           echo "Found latest release: ${{ steps.latest_alt_1.outputs.version }}"
+      - name: Get latest using a different Action (alt_2)
+        id: latest_alt_2
+        uses: thebritican/fetch-latest-release@v1
+        with:
+          repo_path: philrz/release-testing
+      - name: Output the latest we found (alt_2)
+        run: |
+          echo "Found latest release: ${{ steps.latest_alt_2.outputs.tag_name }}"
+
