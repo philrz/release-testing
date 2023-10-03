@@ -1,0 +1,19 @@
+name: Create Release
+
+on:
+  workflow_dispatch:
+
+jobs:
+  check_latest:
+    name: Check If Release Is Needed
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Get last released version
+        id: latest_release
+        uses: pozetroninc/github-action-get-latest-release@v0.7.0
+        with:
+          owner: philrz
+          repo: release-testing
+      - name: Output the latest we found
+        run: |
+          echo "Found latest release: ${{ steps.latest_release.outputs.release }}"
