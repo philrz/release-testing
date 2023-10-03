@@ -27,7 +27,7 @@ jobs:
           echo "Found latest release: ${{ steps.latest_alt_1.outputs.version }}"
       - name: Get latest using a different Action (alt_2)
         id: latest_alt_2
-        uses: thebritican/fetch-latest-release@v1
+        uses: thebritican/fetch-latest-release@v2.0.0
         with:
           repo_path: philrz/release-testing
       - name: Output the latest we found (alt_2)
