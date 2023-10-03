@@ -17,3 +17,11 @@ jobs:
       - name: Output the latest we found
         run: |
           echo "Found latest release: ${{ steps.latest_release.outputs.release }}"
+      - name: Get latest using a different Action
+        id: latest_alt_1
+        uses: fangqiuming/latest-release-version@v1.x
+        with:
+          repository: release-testing
+      - name: Output the latest we found (alt_1)
+        run: |
+          echo "Found latest release: ${{ steps.latest_alt_1.outputs.version }}"
