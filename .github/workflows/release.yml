@@ -21,7 +21,7 @@ jobs:
         id: latest_alt_1
         uses: fangqiuming/latest-release-version@v1.2.0-beta
         with:
-          repository: release-testing
+          repository: philrz/release-testing
       - name: Output the latest we found (alt_1)
         run: |
           echo "Found latest release: ${{ steps.latest_alt_1.outputs.version }}"
