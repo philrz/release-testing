@@ -19,7 +19,7 @@ jobs:
           echo "Found latest release: ${{ steps.latest_release.outputs.release }}"
       - name: Get latest using a different Action
         id: latest_alt_1
-        uses: fangqiuming/latest-release-version@v1.x
+        uses: fangqiuming/latest-release-version@v1.2.0-beta
         with:
           repository: release-testing
       - name: Output the latest we found (alt_1)
