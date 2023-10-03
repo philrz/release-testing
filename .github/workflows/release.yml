@@ -8,29 +8,21 @@ jobs:
     name: Check If Release Is Needed
     runs-on: ubuntu-20.04
     steps:
-      - name: Get last released version
+      - name: Get last released version (pozetroninc/github-action-get-latest-release)
         id: latest_release
         uses: pozetroninc/github-action-get-latest-release@v0.7.0
         with:
           owner: philrz
           repo: release-testing
-      - name: Output the latest we found
+      - name: Output the latest we found (pozetroninc/github-action-get-latest-release)
         run: |
           echo "Found latest release: ${{ steps.latest_release.outputs.release }}"
-      - name: Get latest using a different Action (alt_1)
-        id: latest_alt_1
-        uses: fangqiuming/latest-release-version@v1.2.0-beta
-        with:
-          repository: philrz/release-testing
-      - name: Output the latest we found (alt_1)
-        run: |
-          echo "Found latest release: ${{ steps.latest_alt_1.outputs.version }}"
-      - name: Get latest using a different Action (alt_2)
-        id: latest_alt_2
+      - name: Get latest released version (thebritican/fetch-latest-release)
+        id: latest_alt
         uses: thebritican/fetch-latest-release@v2.0.0
         with:
           repo_path: philrz/release-testing
-      - name: Output the latest we found (alt_2)
+      - name: Output the latest we found (thebritican/fetch-latest-release)
         run: |
-          echo "Found latest release: ${{ steps.latest_alt_2.outputs.tag_name }}"
+          echo "Found latest release: ${{ steps.latest_alt.outputs.tag_name }}"
 
